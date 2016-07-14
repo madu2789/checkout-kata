@@ -20,10 +20,12 @@ class BasicCheckoutTest extends \PHPUnit_Framework_TestCase
         $cart->addItem(new BasicItem('AAA'), 4);
         $cart->addItem(new BasicItem('BBB'), 4);
         $cart->addItem(new BasicItem('AAA'), 2);
+        $cart->addItem(new BasicItem('DDD'), 1);
         $cart->addItem(new BasicItem('CCC'), 6);
+        $cart->addItem(new BasicItem('DDD'), 1);
 
         $price = $checkout->calculate($cart);
         
-        $this->assertEquals($price, 525.50, 'Price is not equal');
+        $this->assertEquals($price, 793, 'Price calculation is not right');
     }
 }
