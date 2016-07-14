@@ -7,6 +7,15 @@ use Checkout\Item;
 
 class BasicCart implements Cart
 {
+
+    /**
+     * @return BasicCart
+     */
+    public static function create()
+    {
+        return new self();
+    }
+
     /**
      * @param Item $item
      * @param int $qty

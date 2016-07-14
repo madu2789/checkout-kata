@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Checkout\Checkout;
+namespace Tests\Integration\Checkout\Checkout;
 
 
 use Checkout\Cart\BasicCart;
@@ -15,8 +15,7 @@ class BasicCheckoutTest extends \PHPUnit_Framework_TestCase
     public function it_should_calculate_discounts_last()
     {
         $checkout = BasicCheckout::createBasicCheckout();
-
-        $cart = new BasicCart();
+        $cart = BasicCart::create();
 
         $cart->addItem(new BasicItem('AAA'), 4);
         $cart->addItem(new BasicItem('BBB'), 4);
@@ -25,6 +24,6 @@ class BasicCheckoutTest extends \PHPUnit_Framework_TestCase
 
         $price = $checkout->calculate($cart);
         
-        $this->assertEquals($price, 525.45, 'Price is not equal');
+        $this->assertEquals($price, 525.50, 'Price is not equal');
     }
 }
