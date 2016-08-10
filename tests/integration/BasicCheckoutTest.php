@@ -23,6 +23,6 @@ class BasicCheckoutTest extends \PHPUnit_Framework_TestCase
 
         $price = $checkout->calculate($cart);
         
-        $this->assertEquals($price, 804, 'Price calculation is not right');
+        $this->assertEquals(804, $price, 'Price calculation is not right');
     }
 }
