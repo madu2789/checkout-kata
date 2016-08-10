@@ -9,10 +9,7 @@ use Checkout\Item\BasicItem;
 
 class BasicCheckoutTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @test
-     */
-    public function it_should_calculate_discounts_last()
+    public function test()
     {
         $checkout = BasicCheckout::createBasicCheckout();
         $cart = BasicCart::create();
