@@ -35,11 +35,11 @@ La lista de precios y ofertas es la siguiente:
 
 Esta prueba se entrega con un test de componente en el que se comprueba la interacción al completo de la feature requerida. Para probarlo ejecuta:
 
-```$ php vendor/bin/phpunit tests/integration/ ```
+```$ vendor/bin/phpunit tests/integration/ ```
 
 Por otro lado, es necesario que la prueba se entregue con los tests unitarios necesarios. Para ello ejecutaremos:
 
-```$ php vendor/bin/phpunit tests/unit/ ```
+```$ vendor/bin/phpunit tests/unit/ ```
 
 ###Se valorará positivamente:
 
@@ -47,5 +47,8 @@ Por otro lado, es necesario que la prueba se entregue con los tests unitarios ne
 * Correcta aplicación de los principios SOLID
 * Correcta aplicación de patrones de diseño. No te preocupes con la sobre ingeniería...se trata de lucirse ;)
 
-El objetivo es hacer que este test pase. Para ello no puedes modificar ningún interfaz (interface). Si podrás, por otro lado, modificar, añadir o eliminar cualquier clase que consideres necesario.
+El objetivo es hacer que el test que se incluye en la prueba pase sin modificarlo ;). Para ello puedes modificar, añadir o eliminar cualquier clase e interfaz que consideres necesario.
+
+Recuerda:
+```$ vendor/bin/phpunit tests/integration/ ```
 
