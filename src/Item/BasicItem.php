@@ -27,7 +27,13 @@ class BasicItem implements Item
      */
     public function equals(Item $item)
     {
-        // TODO: Implement equals() method.
+        return $this->sku() === $item->sku();
+    }
+
+    public function sku(): string
+    {
+        return $this->sku;
+    }
     }
 
     /**

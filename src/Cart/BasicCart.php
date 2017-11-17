@@ -7,6 +7,15 @@ use Checkout\Item;
 
 class BasicCart implements Cart
 {
+    /**
+     * @var Line[] $lines
+     */
+    private $lines;
+
+    public function __construct()
+    {
+        $this->lines = [];
+    }
 
     /**
      * @return BasicCart
@@ -18,10 +27,29 @@ class BasicCart implements Cart
 
     /**
      * @param Item $item
-     * @param int $qty
+     * @param int  $quantity
      */
-    public function addItem(Item $item, $qty)
+    public function addItem(Item $item, $quantity)
     {
-        // TODO: Implement addItem() method.
+        /**
+         * @var Line $line
+         */
+        foreach ($this->lines as $key => $line)
+        {
+            if (!$line->hasSameItem($item))
+            {
+                continue;
+            }
+
+            $this->lines[$key] = $line->increaseQuantity($quantity);
+            return;
+        }
+
+        $this->lines[] = new Line($item, $quantity);
+    }
+
+    public function lines(): array
+    {
+        return $this->lines;
     }
 }

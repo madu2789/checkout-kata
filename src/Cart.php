@@ -9,4 +9,6 @@ interface Cart
      * @param int $qty
      */
     public function addItem(Item $item, $qty);
+
+    public function lines(): array;
 }

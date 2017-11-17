@@ -14,4 +14,6 @@ interface Item
      * @return string
      */
     public function getName();
+
+    public function sku(): string;
 }
