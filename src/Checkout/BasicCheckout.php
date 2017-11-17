@@ -19,8 +19,8 @@ class BasicCheckout implements Checkout
      * @param Cart $cart
      * @return float
      */
-    public function calculate(Cart $cart)
+    public function calculate(Cart $cart): float
     {
-        // TODO: Implement calculate() method.
+        return $cart->calculate();
     }
 }

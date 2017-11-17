@@ -42,6 +42,7 @@ class BasicCart implements Cart
             }
 
             $this->lines[$key] = $line->increaseQuantity($quantity);
+
             return;
         }
 
@@ -51,5 +52,25 @@ class BasicCart implements Cart
     public function lines(): array
     {
         return $this->lines;
+    }
+
+    public function calculate(): float
+    {
+        $total = 0;
+
+        /**
+         * @var Line $line
+         */
+        foreach ($this->lines as $line)
+        {
+            $total += $this->calculateLinePrice($line);
+        }
+
+        return $total;
+    }
+
+    private function calculateLinePrice(Line $line)
+    {
+        return $base_price = $line->calculate();
     }
 }

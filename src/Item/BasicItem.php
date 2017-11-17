@@ -6,19 +6,26 @@ use Checkout\Item;
 
 class BasicItem implements Item
 {
-
     /**
      * @var string
      */
     private $sku;
 
     /**
-     * BasicItem constructor.
-     * @param string $sku
+     * @var float
      */
-    public function __construct($sku)
+    private $price;
+
+    /**
+     * BasicItem constructor.
+     *
+     * @param string $a_sku
+     * @param        $a_price
+     */
+    public function __construct(string $a_sku, float $a_price)
     {
-        $this->sku = $sku;
+        $this->sku   = $a_sku;
+        $this->price = $a_price;
     }
 
     /**
@@ -34,6 +41,10 @@ class BasicItem implements Item
     {
         return $this->sku;
     }
+
+    public function price(): float
+    {
+        return $this->price;
     }
 
     /**

@@ -16,4 +16,5 @@ interface Item
     public function getName();
 
     public function sku(): string;
+    public function price(): float;
 }

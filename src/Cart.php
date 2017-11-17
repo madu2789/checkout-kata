@@ -11,4 +11,5 @@ interface Cart
     public function addItem(Item $item, $qty);
 
     public function lines(): array;
+    public function calculate(): float;
 }
