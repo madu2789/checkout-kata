@@ -22,6 +22,11 @@ class Line
         $this->item     = $item;
     }
 
+    public static function create(Item $item, $quantity): Line
+    {
+        return new self($item, $quantity);
+    }
+
     public function hasSameItem(Item $item): bool
     {
         return $this->item->equals($item);

@@ -62,17 +62,17 @@ class CalculatePromotionTest extends \PHPUnit_Framework_TestCase
 
     private function givenAValidLine($sku)
     {
-        $this->line = new Line(new BasicItem($sku, 100), 3);
+        $this->line = Line::create(new BasicItem($sku, 100), 3);
     }
 
     private function givenALineWithQuantityMinorThanEdge()
     {
-        $this->line = new Line(new BasicItem('AAA', 100), 2);
+        $this->line = Line::create(new BasicItem('AAA', 100), 2);
     }
 
     private function givenALineWithInvalidSku()
     {
-        $this->line = new Line(new BasicItem('ZZZ', 10), 10);
+        $this->line = Line::create(new BasicItem('ZZZ', 10), 10);
     }
 
     private function havingACalculateThreePerTwo(): void

@@ -49,7 +49,7 @@ class BasicCart implements Cart
             return;
         }
 
-        $this->lines[] = new Line($item, $quantity);
+        $this->lines[] = Line::create($item, $quantity);
     }
 
     public function lines(): array
