@@ -37,11 +37,6 @@ class Line
         return new self($this->item, $this->quantity + $quantity);
     }
 
-    public function decreaseQuantity($quantity): Line
-    {
-        return new self($this->item, $this->quantity - $quantity);
-    }
-
     public function calculate(): float
     {
         return $this->quantity * $this->item->price();

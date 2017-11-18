@@ -29,7 +29,7 @@ class CalculatePercentage extends DecoratorAction
         return in_array($line->item->sku(), self::SHOULD_EXECUTE_SKU);
     }
 
-    private function getDiscountPercentage($sku)
+    private function getDiscountPercentage($sku): float
     {
         if ('BBB' === $sku)
         {
