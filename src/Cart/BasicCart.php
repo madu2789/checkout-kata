@@ -20,19 +20,12 @@ class BasicCart implements Cart
         $this->lines = [];
     }
 
-    /**
-     * @return BasicCart
-     */
-    public static function create()
+    public static function create(): BasicCart
     {
         return new self();
     }
 
-    /**
-     * @param Item $item
-     * @param int  $quantity
-     */
-    public function addItem(Item $item, $quantity)
+    public function addItem(Item $item, $quantity): void
     {
         /**
          * @var Line $line
@@ -72,7 +65,7 @@ class BasicCart implements Cart
         return $total;
     }
 
-    private function calculateLinePrice(Line $line)
+    private function calculateLinePrice(Line $line): float
     {
         $decorator_per_unit   = new CalculatePerUnit();
         $decorator_percentage = new CalculatePercentage($decorator_per_unit);

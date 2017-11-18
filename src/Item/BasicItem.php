@@ -32,7 +32,7 @@ class BasicItem implements Item
      * @param Item $item
      * @return boolean
      */
-    public function equals(Item $item)
+    public function equals(Item $item): bool
     {
         return $this->sku() === $item->sku();
     }
@@ -45,13 +45,5 @@ class BasicItem implements Item
     public function price(): float
     {
         return $this->price;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        // TODO: Implement getName() method.
     }
 }

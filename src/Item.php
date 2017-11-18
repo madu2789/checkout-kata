@@ -10,11 +10,6 @@ interface Item
      */
     public function equals(Item $item);
 
-    /**
-     * @return string
-     */
-    public function getName();
-
     public function sku(): string;
     public function price(): float;
 }
