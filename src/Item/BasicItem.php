@@ -8,6 +8,8 @@ class BasicItem implements Item
 {
     private const SHOULD_EXECUTE_PERCENTAGE_DISCOUNT = ['AAA', 'BBB', 'DDD'];
     private const SHOULD_EXECUTE_PROMOTION_DISCOUNT = ['AAA', 'DDD'];
+    private const FIVE_PER_CENT = (5 / 100);
+    private const TEN_PER_CENT = (10 / 100);
 
     /**
      * @var string
@@ -58,5 +60,15 @@ class BasicItem implements Item
     public function canApplyPromotionDiscount(): bool
     {
         return in_array($this->sku(), self::SHOULD_EXECUTE_PROMOTION_DISCOUNT);
+    }
+
+    public function percentageDiscount(): float
+    {
+        if ('BBB' === $this->sku())
+        {
+            return self::FIVE_PER_CENT;
+        }
+
+        return self::TEN_PER_CENT;
     }
 }

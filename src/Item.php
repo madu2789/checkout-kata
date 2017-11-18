@@ -13,4 +13,6 @@ interface Item
     public function canApplyPercentageDiscount(): bool;
 
     public function canApplyPromotionDiscount(): bool;
+
+    public function percentageDiscount(): float;
 }
