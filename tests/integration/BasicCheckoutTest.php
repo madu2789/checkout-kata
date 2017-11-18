@@ -25,6 +25,34 @@ class BasicCheckoutTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(804, $price, 'Price with discounts calculation is not right');
     }
 
+    public function testPriceWithThreePerTwoDiscount()
+    {
+        $checkout = BasicCheckout::createBasicCheckout();
+        $cart     = BasicCart::create();
+
+        $cart->addItem(new BasicItem('AAA', 100), 4);
+        $cart->addItem(new BasicItem('AAA', 100), 2);
+        $cart->addItem(new BasicItem('DDD', 25), 1);
+        $cart->addItem(new BasicItem('DDD', 25), 2);
+
+        $price = $checkout->calculate($cart);
+
+        $this->assertEquals(450, $price, 'Price with discount three per two calculation is not right');
+    }
+
+    public function testPriceWithPercentageDiscount()
+    {
+        $checkout = BasicCheckout::createBasicCheckout();
+        $cart     = BasicCart::create();
+
+        $cart->addItem(new BasicItem('DDD', 25), 1);
+        $cart->addItem(new BasicItem('DDD', 25), 1);
+
+        $price = $checkout->calculate($cart);
+
+        $this->assertEquals(45, $price, 'Price with discount three per two calculation is not right');
+    }
+
     public function testPriceWithoutDiscounts()
     {
         $checkout = BasicCheckout::createBasicCheckout();

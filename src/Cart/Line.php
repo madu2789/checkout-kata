@@ -41,4 +41,9 @@ class Line
     {
         return $this->quantity * $this->item->price();
     }
+
+    public function quantity(): int
+    {
+        return $this->quantity;
+    }
 }
