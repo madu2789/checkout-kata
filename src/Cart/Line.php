@@ -46,4 +46,9 @@ class Line
     {
         return $this->quantity;
     }
+
+    public function item(): Item
+    {
+        return $this->item;
+    }
 }

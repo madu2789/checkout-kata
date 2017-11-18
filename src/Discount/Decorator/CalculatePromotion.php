@@ -7,7 +7,6 @@ use Checkout\Discount\DecoratorAction;
 
 class CalculatePromotion extends DecoratorAction
 {
-    private const SHOULD_EXECUTE_SKU = ['AAA', 'DDD'];
     private const QUANTITY_EDGE = 3;
     private const QUANTITY_PROMOTION = 2;
 
@@ -29,6 +28,6 @@ class CalculatePromotion extends DecoratorAction
             return false;
         }
 
-        return in_array($line->item->sku(), self::SHOULD_EXECUTE_SKU);
+        return $line->item()->canApplyPromotionDiscount();
     }
 }

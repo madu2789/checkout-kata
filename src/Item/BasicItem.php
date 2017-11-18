@@ -6,6 +6,9 @@ use Checkout\Item;
 
 class BasicItem implements Item
 {
+    private const SHOULD_EXECUTE_PERCENTAGE_DISCOUNT = ['AAA', 'BBB', 'DDD'];
+    private const SHOULD_EXECUTE_PROMOTION_DISCOUNT = ['AAA', 'DDD'];
+
     /**
      * @var string
      */
@@ -45,5 +48,15 @@ class BasicItem implements Item
     public function price(): float
     {
         return $this->price;
+    }
+
+    public function canApplyPercentageDiscount(): bool
+    {
+        return in_array($this->sku(), self::SHOULD_EXECUTE_PERCENTAGE_DISCOUNT);
+    }
+
+    public function canApplyPromotionDiscount(): bool
+    {
+        return in_array($this->sku(), self::SHOULD_EXECUTE_PROMOTION_DISCOUNT);
     }
 }

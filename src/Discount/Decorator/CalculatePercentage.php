@@ -7,7 +7,6 @@ use Checkout\Discount\DecoratorAction;
 
 class CalculatePercentage extends DecoratorAction
 {
-    private const SHOULD_EXECUTE_SKU = ['AAA', 'BBB', 'DDD'];
     private const QUANTITY_EDGE = 1;
     private const FIVE_PER_CENT = 5 / 100;
     private const TEN_PER_CENT = 10 / 100;
@@ -26,7 +25,7 @@ class CalculatePercentage extends DecoratorAction
             return false;
         }
 
-        return in_array($line->item->sku(), self::SHOULD_EXECUTE_SKU);
+        return $line->item()->canApplyPercentageDiscount();
     }
 
     private function getDiscountPercentage($sku): float

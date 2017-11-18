@@ -4,12 +4,13 @@ namespace Checkout;
 
 interface Item
 {
-    /**
-     * @param Item $item
-     * @return boolean
-     */
-    public function equals(Item $item);
+    public function equals(Item $item): bool;
 
     public function sku(): string;
+
     public function price(): float;
+
+    public function canApplyPercentageDiscount(): bool;
+
+    public function canApplyPromotionDiscount(): bool;
 }
