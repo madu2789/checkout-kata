@@ -5,7 +5,7 @@ namespace Checkout\Discount\Decorator;
 use Checkout\Cart\Line;
 use Checkout\Discount\DecoratorAction;
 
-class CalculateThreePerTwo extends DecoratorAction
+class CalculatePromotion extends DecoratorAction
 {
     private const SHOULD_EXECUTE_SKU = ['AAA', 'DDD'];
     private const QUANTITY_EDGE = 3;

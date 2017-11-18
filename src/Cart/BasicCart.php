@@ -6,7 +6,7 @@ use Checkout\Cart;
 use Checkout\Item;
 use Checkout\Discount\Decorator\CalculatePercentage;
 use Checkout\Discount\Decorator\CalculatePerUnit;
-use Checkout\Discount\Decorator\CalculateThreePerTwo;
+use Checkout\Discount\Decorator\CalculatePromotion;
 
 class BasicCart implements Cart
 {
@@ -74,10 +74,10 @@ class BasicCart implements Cart
 
     private function calculateLinePrice(Line $line)
     {
-        $decorator_per_unit      = new CalculatePerUnit();
-        $decorator_percentage    = new CalculatePercentage($decorator_per_unit);
-        $decorator_three_per_two = new CalculateThreePerTwo($decorator_percentage);
+        $decorator_per_unit   = new CalculatePerUnit();
+        $decorator_percentage = new CalculatePercentage($decorator_per_unit);
+        $decorator_promotion  = new CalculatePromotion($decorator_percentage);
 
-        return $result = $decorator_three_per_two->__invoke($line);
+        return $decorator_promotion->__invoke($line);
     }
 }

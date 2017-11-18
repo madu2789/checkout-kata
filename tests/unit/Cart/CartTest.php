@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration\Checkout\Checkout;
+namespace Tests\Unit\Cart;
 
 use Checkout\Cart\BasicCart;
 use Checkout\Item\BasicItem;
